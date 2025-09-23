@@ -23,7 +23,6 @@ export class ProductoService {
   }
 
   save(producto: ProductoModel): Observable<ProductoModel> {
-
     return this.httpClient.post<ProductoModel>(this.url, producto);
   }
 
@@ -37,11 +36,11 @@ export class ProductoService {
     console.log("url_put => " + url_put);
 
     return this.httpClient.put<ProductoModel>(url_put, producto);
+
   }
 
   delete(idProducto: string): Observable<ProductoModel> {
     const url_delete = `${this.url}/${idProducto}`
-    //const url_delete = `${environment.API_BASE}/api/Productos/${idProducto}`;
 
     console.log("url_delete => " + url_delete);
     console.log("idProducto => " + idProducto);

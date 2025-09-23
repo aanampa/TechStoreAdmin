@@ -1,6 +1,6 @@
 <app-header-component></app-header-component>
 
-<div style="margin-top: 80px;">
+<div style="margin-top: 80px">
   <h3>Productos</h3>
   <hr />
 </div>
@@ -14,7 +14,12 @@
       <input type="text" formControlName="nombre" id="nombre" class="form-control" />
     </div>
     <div class="col-md-9 d-flex align-items-center mt-md-0 mt-2">
-      <button type="button" class="btn btn-secondary me-2 mr-2" title="Buscar producto" (click)="buscar()">
+      <button
+        type="button"
+        class="btn btn-secondary me-2 mr-2"
+        title="Buscar producto"
+        (click)="buscar()"
+      >
         <i class="bi bi-search"></i> Buscar
       </button>
       <button
@@ -56,9 +61,8 @@
       <td>{{ item.stock }}</td>
       <td>
         @if (item.imagenUrl){
-            <img src="images/{{ item.imagenUrl }}" width="90" alt="Logo" />
+        <img src="images/{{ item.imagenUrl }}" width="90" alt="Logo" />
         }
-
       </td>
       <td>
         <button type="button" class="btn btn-info mr-2" (click)="modificar(item)">
@@ -75,7 +79,6 @@
   </tbody>
 </table>
 
-
 <div class="row">
   <div class="col-xs-12 col-12">
     <pagination
@@ -85,5 +88,3 @@
     ></pagination>
   </div>
 </div>
-
-

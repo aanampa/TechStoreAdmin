@@ -10,20 +10,8 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
-    path: 'solicitudes',
-    component: SolicitudesListado
-  },
-  {
     path: 'productos',
     component: ProductoListadoComponent
-  },
-  {
-    path: 'solicitudes/registro',
-    component: SolicitudesRegistro
-  },
-  {
-    path: 'solicitudes/registro/:id',
-    component: SolicitudesRegistro
   },
   {
     path: 'productos/registro',
@@ -36,12 +24,6 @@ export const routes: Routes = [
   {
     path: 'categorias',
     component: CategoriaListadoComponent
-  },
-
-  /*,
-  {
-    path: '',
-    component: SolicitudesListado
-  }*/
+  }
 
 ];
