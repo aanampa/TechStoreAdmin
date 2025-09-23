@@ -1,0 +1,37 @@
+<header class="header bg-primary">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#"> <i class="fas fa-laptop me-2"></i>TechStore </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="/productos" routerLink="/productos" routerLinkActive="active"
+            ><i class="bi bi-table"></i> Productos</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/clientes" routerLinkActive="active"
+            ><i class="bi bi-card-checklist"></i> Clientes</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/usuarios" routerLinkActive="active"
+            ><i class="bi bi-people-fill"></i> Usuarios</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="#" routerLinkActive="active" (click)="logout()"
+            ><i class="bi bi-x-square-fill"></i> Salir</a
+          >
+        </li>
+      </ul>
+
+
+    </div>
+  </nav>
+</header>
+
+

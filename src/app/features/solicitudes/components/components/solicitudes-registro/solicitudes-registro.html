@@ -1,0 +1,134 @@
+<app-header-component></app-header-component>
+
+<div style="margin-top: 80px;">
+  <h3>Registro de Solicitud de Mantenimiento</h3>
+  <hr />
+</div>
+
+<div class="mb-4">
+
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <!--
+        <div class="card-header py-3">
+          <h5 class="card-title mb-0"><i class="bi bi-tools me-2"></i>Solicitud de Mantenimiento</h5>
+        </div>
+        -->
+        <div class="card-body">
+
+          <form [formGroup]="frmSolicitudRegistro">
+            <!-- ID (oculto para creación, visible para edición) -->
+            <input type="hidden" id="id" name="id" value="" formControlName="id" >
+
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <label for="titulo" class="form-label required-field">Título</label>
+                <input type="text" id="titulo" name="titulo" formControlName="titulo" class="form-control"
+                  [ngClass]="{ 'is-invalid': fcm['titulo'].errors}" />
+                <div class="invalid-feedback">
+                  Por favor ingrese un titulo.
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <label for="descripcion" class="form-label required-field">Descripción</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" formControlName="descripcion"
+                  [ngClass]="{ 'is-invalid': fcm['descripcion'].errors}" rows="4"></textarea>
+                <div class="invalid-feedback">
+                  Por favor ingresa una descripción detallada.
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="fecha" class="form-label required-field">Fecha</label>
+                <input type="date" id="fecha" name="fecha"
+                  class="form-control" formControlName="fecha" required>
+                <div class="invalid-feedback">
+                  Por favor selecciona una fecha.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="servicio" class="form-label required-field">Tipo de Servicio</label>
+                <select id="servicio" name="servicio" class="form-control" formControlName="servicio" required>
+                  <option value="">- Seleccione -</option>
+                  <option value="1">Mantenimiento HVAC</option>
+                  <option value="2">Soporte Técnico</option>
+                  <option value="3">Instalación Software</option>
+                  <option value="4">Redes y Conectividad</option>
+                  <option value="5">Capacitación</option>
+                  <option value="6">Respaldo de Datos</option>
+                  <option value="7">Hardware y Equipos</option>
+                  <option value="8">Correo Electrónico</option>
+                  <option value="9">Acceso Remoto y VPN</option>
+                  <option value="10">Gestión de Licencias</option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor selecciona un tipo de servicio.
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="anexo" class="form-label">Documento anexo</label>
+                <input type="file" class="form-control" id="anexo" name="anexo" accept=".pdf,.doc,.docx,.jpg,.png">
+                <div class="form-text">Formatos aceptados: PDF, DOC, DOCX, JPG, PNG</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="estado" class="form-label required-field">Estado</label>
+                <select  id="estado" name="estado" class="form-control" formControlName="estado" required>
+                  <option value="">- Seleccione -</option>
+                  <option value="1">Pendiente</option>
+                  <option value="2">En proceso</option>
+                  <option value="3">Completado</option>
+                  <option value="4">Cancelado</option>
+                  <option value="5">En revisión</option>
+                  <option value="6">Programado</option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor selecciona un estado.
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="email" class="form-label required-field">Email de contacto</label>
+                <input type="email" id="email" name="email" class="form-control" formControlName="email" required>
+                <div class="invalid-feedback">
+                  Por favor ingresa un email válido.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="telefono" class="form-label required-field">Teléfono de contacto</label>
+                <input type="text" id="telefono" name="telefono" class="form-control" formControlName="telefono" required>
+                <div class="invalid-feedback">
+                  Por favor ingresa un número de teléfono válido.
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-secondary mr-2" (click)="listarSolicitudes()">
+            <i class="bi bi-arrow-left"></i> Retornar a Lista
+          </button>
+
+          <button type="button" class="btn btn-primary" (click)="grabar($event)">
+            <i class="bi bi-floppy"></i> Grabar Solicitud
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
