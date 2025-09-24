@@ -8,6 +8,7 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../header/components/header-component/header-component';
 import Swal from 'sweetalert2';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-producto-listado-component',
@@ -36,6 +37,8 @@ export class ProductoListadoComponent implements OnInit {
 
   private fb = inject(FormBuilder);
   public frmBusqueda: FormGroup = this.fb.group({});
+
+  public imagenUrl = `${environment.API_BASE}/api/Upload/imagen`;
 
   ngOnInit(): void {
     // Lógica de inicialización del componente
@@ -80,6 +83,28 @@ export class ProductoListadoComponent implements OnInit {
   }
 
   buscar() {
+
+
+    const textoBusqueda = this.fcm['nombre'].value;
+    console.log('textoBusqueda =>' + textoBusqueda);
+
+    this.productoService.findByLikeTitulo(textoBusqueda).subscribe({
+      next: (res) => {
+
+        this.productosLista = res;
+        console.log(res);
+
+        this.totalItems = this.productosLista.length; //pag
+        this.productosListaPaginados = this.productosLista.slice(0, this.paginaItems); //pag
+
+
+      },
+      error: (err) => {
+
+        console.log(err);
+
+      },
+    });
 
   }
 

@@ -1,6 +1,6 @@
 <app-header-component></app-header-component>
 
-<div style="margin-top: 80px;margin-bottom: 20px;">
+<div style="margin-top: 80px; margin-bottom: 20px">
   <h3>Registro de Producto</h3>
 </div>
 
@@ -108,27 +108,59 @@
               <div class="col-md-6">
                 <label for="anexo" class="form-label">Imagen del producto</label>
                 <input
+                  #fileInput
                   type="file"
                   class="form-control"
-                  id="anexo"
-                  name="anexo"
-                  accept=".jpg,.png"
+                  id="imagen"
+                  name="imagen"
+                  accept=".jpg,.jpeg,.png,.gif"
+                  (change)="onFileSelected($event)"
                 />
                 <div class="form-text">Formatos aceptados: JPG, PNG</div>
+
+                <!-- Botón para limpiar archivo -->
+
+                @if(archivoSeleccionado || imagenActual){
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary mt-2"
+                  (click)="limpiarArchivo()"
+                >
+                  <i class="bi bi-x-circle"></i> Limpiar imagen
+                </button>
+                }
               </div>
+
+              <!-- Preview de imagen -->
+              @if(previewUrl){
+              <div class="col-md-6">
+                <label class="form-label">Vista previa:</label>
+                <div>
+                  <img
+                    [src]="previewUrl"
+                    alt="Preview"
+                    class="img-thumbnail"
+                    style="max-width: 200px; max-height: 200px"
+                  />
+                </div>
+              </div>
+              }
             </div>
           </form>
         </div>
         <div class="card-footer">
-
-          <button type="button" class="btn btn-secondary" (click)="listarProductos()" style="margin-right: 10px;">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="listarProductos()"
+            style="margin-right: 10px"
+          >
             <i class="bi bi-arrow-left"></i> Retornar a Lista
           </button>
 
           <button type="button" class="btn btn-primary" (click)="grabar($event)">
             <i class="bi bi-floppy"></i> Grabar Producto
           </button>
-
         </div>
       </div>
     </div>
