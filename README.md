@@ -43,7 +43,7 @@ npm install
 
 ```bash
 # Ejecutar projecto Back End
-
+Revisar: https://github.com/Luis-Caxi-Calani/Back-TechStore.git
 # Ejecutar el servidor de desarrollo
 ng serve
 
