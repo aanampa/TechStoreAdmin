@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { ProductoModel } from '../models/producto.interface';
 
@@ -12,6 +12,8 @@ export class ProductoService {
   private httpClient = inject(HttpClient)
 
   url = `${environment.API_BASE}/api/Productos`
+  uploadUrl = `${environment.API_BASE}/api/Upload`
+  //findUrl = `${environment.API_BASE}/api/Productos/FindProductos`
 
   getAll(): Observable<ProductoModel[]> {
     return this.httpClient.get<ProductoModel[]>(this.url);
@@ -49,8 +51,46 @@ export class ProductoService {
   }
 
   findByLikeTitulo(nombre: string): Observable<ProductoModel[]> {
-    const vurl = `${environment.API_BASE}/productos?nombre_like=${nombre}`;
-    return this.httpClient.get<ProductoModel[]>(vurl);
+    const vurl_find = `${this.url}/FindProductos/${nombre}`;
+    return this.httpClient.get<ProductoModel[]>(vurl_find);
   }
 
+  // Nuevos métodos para subir imágenes
+  subirImagen(archivo: File): Observable<{ imagenUrl: string }> {
+    const formData = new FormData();
+    formData.append('archivo', archivo);
+    return this.httpClient.post<{ imagenUrl: string }>(`${this.uploadUrl}/imagen`, formData);
+  }
+
+  // Crear producto con imagen
+  crearProductoConImagen(producto: ProductoModel, archivo: File): Observable<ProductoModel> {
+    if (archivo) {
+      return this.subirImagen(archivo).pipe(
+        switchMap((response: any) => {
+          //producto.imagenUrl = response.imagenUrl;
+          producto.imagenUrl = response.nombreArchivo;
+          return this.save(producto);
+        })
+      );
+    } else {
+      return this.save(producto);
+    }
+  }
+
+  // Actualizar producto con imagen
+  actualizarProductoConImagen(idProducto: string, producto: ProductoModel, archivo: File): Observable<ProductoModel> {
+    if (archivo) {
+      return this.subirImagen(archivo).pipe(
+        switchMap((response: any) => {
+          //producto.imagenUrl = response.imagenUrl;
+          producto.imagenUrl = response.nombreArchivo;
+
+          return this.update(idProducto, producto);
+        })
+      );
+    } else {
+      return this.update(idProducto, producto);
+    }
+  }
+  //--
 }

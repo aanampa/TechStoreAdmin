@@ -61,8 +61,9 @@
       <td>{{ item.stock }}</td>
       <td>
         @if (item.imagenUrl){
-        <img src="images/{{ item.imagenUrl }}" width="90" alt="Logo" />
+        <img src="{{imagenUrl}}/{{ item.imagenUrl }}" width="90" alt="Logo" />
         }
+
       </td>
       <td>
         <button type="button" class="btn btn-info mr-2" (click)="modificar(item)">
