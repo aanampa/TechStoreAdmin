@@ -1,59 +1,29 @@
-# AppProyecto
+# TechStoreAdmin - Admin Panel
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+Proyecto desarrollado en Angular 20 para la administración de una tienda tecnológica.
 
-## Development server
+## 1. Prerrequisitos
 
-To start a local development server, run:
+Antes de comenzar, asegúrate de tener instalado en tu sistema:
+- Node.js (versión 18 o superior)
+- npm (versión 9 o superior) o yarn
+- Angular CLI (versión 20 o superior)
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 2. Verificar instalaciones
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Verificar Node.js
+node --version
 
-```bash
-ng generate component component-name
-```
+### Verificar npm
+npm --version
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Verificar Angular CLI
+ng version
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 3. Instalar Angular CLI (si no lo tienes)
 
 ```bash
-ng build
+npm install -g @angular/cli
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
