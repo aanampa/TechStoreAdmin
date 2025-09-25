@@ -11,19 +11,43 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 
 ## 2. Verificar instalaciones
-
-
-### Verificar Node.js
+```bash
+# Verificar Node.js
 node --version
 
-### Verificar npm
+# Verificar npm
 npm --version
 
-### Verificar Angular CLI
+# Verificar Angular CLI
 ng version
+```
 
 ## 3. Instalar Angular CLI (si no lo tienes)
 
 ```bash
 npm install -g @angular/cli
 ```
+## 4. Clonación del proyecto
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/aanampa/TechStoreAdmin.git
+
+# Navegar al directorio del proyecto
+cd TechStoreAdmin
+
+# Instalar dependencias
+npm install
+```
+## 5. Ejecución del proyecto
+
+```bash
+# Ejecutar projecto Back End
+
+# Ejecutar el servidor de desarrollo
+ng serve
+
+# O con puerto específico
+ng serve --port 4200
+```
+
